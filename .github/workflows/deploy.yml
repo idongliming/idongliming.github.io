@@ -1,0 +1,35 @@
+name: Main workflow
+
+on:
+  push:
+    branches:
+    - source
+
+jobs:
+  build:
+
+    runs-on: ubuntu-18.04
+    
+    steps:
+    - uses: actions/checkout@v1
+    - name: Use Node.js 10.x
+      uses: actions/setup-node@v1
+      with:
+        node-version: '10.x'
+    - name: prepare build env
+      env:
+        GH_ACTION_DEPLOY_KEY: ${{ secrets.GH_ACTION_DEPLOY_KEY }}
+      run: |
+        mkdir -p ~/.ssh/
+        echo "$GH_ACTION_DEPLOY_KEY" > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+        ssh-keyscan github.com >> ~/.ssh/known_hosts
+        git config --global user.name 'idongliming'
+        git config --global user.email 'idongliming@qq.com'
+        npm i -g hexo-cli
+        npm i
+        git clone -b master git@github.com:blinkfox/hexo-theme-matery.git themes/matery
+        cp source/_data/matery.yml themes/matery/_config.yml
+    - name: deploy to github 
+      run: |
+        hexo generate && hexo deploy
