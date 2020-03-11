@@ -121,7 +121,7 @@ indexbtn:
   enable: true
   name: Github
   icon: fab fa-github-alt
-  url: https://github.com/blinkfox/hexo-theme-matery
+  url: https://github.com/idongliming
 
 # The configurations of the second line of home banner
 # icon/button will not show up if you leave the corresponding socialLink empty
@@ -329,8 +329,8 @@ busuanziStatistics:
 # Add google analytics configuration
 # 添加 Google Analytics 配置
 googleAnalytics:
-  enable: false
-  id:
+  enable: true
+  id: UA-142594716-1
 
 # Add baidu analytics configuration
 # 添加 baidu Analytics 配置
