@@ -88,17 +88,10 @@ archive_generator:
 tag_generator:
   per_page: 10
 
-
-# Demo: https://utteranc.es/  http://trumandu.github.io/about/
-utteranc:
-  enable: true
-  repo: idongliming/idongliming.github.io
-  pathname: pathname
-  # theme: github-light,github-dark,github-dark-orange
-  theme: github-light
-  cdn: https://utteranc.es/client.js
-  # If you want to modify priority, please config in **hexo**
-  #priority:
+# 本地搜索
+search:
+  path: search.xml
+  field: post
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
