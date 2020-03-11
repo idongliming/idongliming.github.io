@@ -3,10 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "build": "hexo generate",
-    "clean": "hexo clean",
-    "deploy": "hexo deploy",
-    "server": "hexo server"
+    "test": "hexo clean && hexo generate && hexo server",
+    "pull": "git pull origin source",
+    "push": "git add . && git commit -m\"add a post\" && git push origin source"
   },
   "hexo": {
     "version": "4.2.0"
