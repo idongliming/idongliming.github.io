@@ -2,7 +2,7 @@
 title: 资料
 tags:
   - 索引
-categories: Notes
+categories: 学习笔记
 date: 2019-06-13 13:26:13
 ---
 

@@ -2,7 +2,8 @@
 title: 中文文案排版指北
 tags:
   - 文档
-categories: Wiki
+  - markdown
+categories: 介绍
 date: 2019-07-24 13:26:13
 cover: true
 ---
@@ -18,10 +19,6 @@ Other languages:
 
 -----
 
-**目录**
-
-* TOC
-{:toc}
 
 ## 空格
 

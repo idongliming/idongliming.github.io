@@ -2,7 +2,7 @@
 title: windows激活脚本
 tags:
   - windows
-categories: Notes
+categories: 学习笔记
 date: 2019-05-06 13:26:13
 ---
 

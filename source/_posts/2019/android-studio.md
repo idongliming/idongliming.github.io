@@ -1,8 +1,8 @@
 ---
 title: Android Studio
 tags:
-  - android studio
-categories: Wiki
+  - 工具
+categories: 介绍
 date: 2019-07-24 13:26:13
 ---
 
@@ -108,7 +108,6 @@ Cmd --> Command
 
 在 Layout XML 文件里点击根节点前的小图标跳转到关联的 Activity/Fragment：
 
-![jump from layout to class]({{ site.url }}/images/wiki/jump-from-layout-to-class.jpg)
 
 ## 插件
 

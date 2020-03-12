@@ -1,8 +1,8 @@
 ---
 title: 好用的软件
 tags:
-  - wiki
-categories: Wiki
+  - 软件
+categories: 介绍
 date: 2019-07-24 13:26:13
 ---
 

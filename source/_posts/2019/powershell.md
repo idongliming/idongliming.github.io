@@ -1,8 +1,8 @@
 ---
 title: PowerShell
 tags:
-  - powershell
-categories: Wiki
+  - 工具
+categories: 介绍
 date: 2019-07-24 13:26:13
 ---
 

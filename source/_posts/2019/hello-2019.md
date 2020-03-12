@@ -3,7 +3,7 @@ title: Hello World
 tags:
   - Hexo
   - GitHub
-categories: Notes
+categories: 学习笔记
 date: 2019-01-29 13:26:13
 ---
 

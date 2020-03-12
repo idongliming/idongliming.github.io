@@ -2,9 +2,10 @@
 title: git操作
 tags:
   - git
-categories: Wiki
+categories: 学习笔记
 date: 2019-07-24 13:26:13
 cover: true
+top: true
 ---
 
 

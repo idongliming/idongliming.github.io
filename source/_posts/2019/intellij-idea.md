@@ -2,7 +2,7 @@
 title: IDEA
 tags:
   - idea
-categories: Wiki
+categories: 介绍
 date: 2019-07-24 13:26:13
 ---
 

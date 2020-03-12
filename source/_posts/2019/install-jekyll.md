@@ -2,8 +2,9 @@
 title: 在windows环境下安装jekyll
 tags:
   - jekyll
-categories: Notes
+categories: 学习笔记
 date: 2019-01-30 13:26:13
+top: true
 ---
 
 > github的后端使用ruby，支持静态页面托管，也可以提交jekll源码，会自动生成静态页面，使用github提供的jekyll并不是必须需要本地安装jekyll的

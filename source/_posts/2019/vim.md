@@ -2,7 +2,8 @@
 title: Vim
 tags:
   - vim
-categories: Wiki
+  - linux
+categories: 介绍
 date: 2019-07-24 13:26:13
 ---
 
