@@ -347,8 +347,8 @@ baiduPush: false
 libs:
   css:
     fontAwesome: /libs/awesome/css/all.css # V5.11.1
-    materialize: /libs/materialize/materialize.min.css # 1.0.0
-    aos: /libs/aos/aos.css
+    materialize: https://cdn.bootcss.com/materialize/1.0.0/css/materialize.min.css # 1.0.0
+    aos: https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css
     animate: /libs/animate/animate.min.css # V3.5.1
     lightgallery: /libs/lightGallery/css/lightgallery.min.css # V1.6.11
     aplayer: /libs/aplayer/APlayer.min.css
@@ -357,18 +357,18 @@ libs:
     jqcloud: /libs/jqcloud/jqcloud.css
     tocbot: /libs/tocbot/tocbot.css
   js:
-    jquery: /libs/jquery/jquery.min.js
+    jquery: https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js
     materialize: /libs/materialize/materialize.min.js # 1.0.0
     masonry: /libs/masonry/masonry.pkgd.min.js # v4.0.0
-    aos: /libs/aos/aos.js
-    scrollProgress: /libs/scrollprogress/scrollProgress.min.js
-    lightgallery: /libs/lightGallery/js/lightgallery-all.min.js # V1.6.11
+    aos: https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.min.js
+    scrollProgress: https://cdn.jsdelivr.net/npm/scrollprogress@3.0.2/dist/scrollProgress.min.js
+    lightgallery: https://cdn.jsdelivr.net/npm/lightgallery@1.6.11/dist/js/lightgallery.min.js # V1.6.11
     clicklove: /libs/others/clicklove.js
     busuanzi: /libs/others/busuanzi.pure.mini.js
     aplayer: /libs/aplayer/APlayer.min.js
     dplayer: /libs/dplayer/DPlayer.min.js
     crypto: /libs/cryptojs/crypto-js.min.js
-    echarts: /libs/echarts/echarts.min.js
+    echarts: https://cdn.jsdelivr.net/npm/echarts@4.6.0/dist/echarts.min.js
     gitalk: /libs/gitalk/gitalk.min.js
     valine: /libs/valine/Valine.min.js # 若想保持最新版，请替换为 https://unpkg.com/valine/dist/Valine.min.js  默认为 /libs/valine/Valine.min.js
     jqcloud: /libs/jqcloud/jqcloud-1.0.4.min.js
@@ -382,30 +382,30 @@ libs:
 # The post featured images that needs to be displayed when there is no image.
 # 无文章特色图片时需要显示的文章特色图片.
 featureImages:
-- /medias/featureimages/0.jpg
-- /medias/featureimages/1.jpg
-- /medias/featureimages/2.jpg
-- /medias/featureimages/3.jpg
-- /medias/featureimages/4.jpg
-- /medias/featureimages/5.jpg
-- /medias/featureimages/6.jpg
-- /medias/featureimages/7.jpg
-- /medias/featureimages/8.jpg
-- /medias/featureimages/9.jpg
-- /medias/featureimages/10.jpg
-- /medias/featureimages/11.jpg
-- /medias/featureimages/12.jpg
-- /medias/featureimages/13.jpg
-- /medias/featureimages/14.jpg
-- /medias/featureimages/15.jpg
-- /medias/featureimages/16.jpg
-- /medias/featureimages/17.jpg
-- /medias/featureimages/18.jpg
-- /medias/featureimages/19.jpg
-- /medias/featureimages/20.jpg
-- /medias/featureimages/21.jpg
-- /medias/featureimages/22.jpg
-- /medias/featureimages/23.jpg
+- https://i.loli.net/2020/03/14/emwKfx3rpbHJq2y.jpg
+- https://i.loli.net/2020/03/14/1ChmSeU52pEjFqu.jpg
+- https://i.loli.net/2020/03/14/JSdluiTjzO3tIhg.jpg
+- https://i.loli.net/2020/03/14/gjS5l21Coi6LTns.jpg
+- https://i.loli.net/2020/03/14/t5g6OjsviTGrIb1.jpg
+- https://i.loli.net/2020/03/14/A1tBFzyfLCYHeKw.jpg
+- https://i.loli.net/2020/03/14/3AiMhoT1yvzsQ4W.jpg
+# - /medias/featureimages/7.jpg
+- https://i.loli.net/2020/03/14/FEhOwSNGnaBRmD2.jpg
+- https://i.loli.net/2020/03/14/gF3DyRHaqVnkmoP.jpg
+- https://i.loli.net/2020/03/14/y8ZdfixnBa76X3j.jpg
+- https://i.loli.net/2020/03/14/T8uLCR9gkrxzmYI.jpg
+- https://i.loli.net/2020/03/14/ezoDVxAvirf6wY5.jpg
+- https://i.loli.net/2020/03/14/Er72MvKcFilO8gf.jpg
+- https://i.loli.net/2020/03/14/k8wdJfTPMCiABoj.jpg
+- https://i.loli.net/2020/03/14/MrTbSiVPmHsKuhG.jpg
+- https://i.loli.net/2020/03/14/RVhX1ALD3UTK4YG.jpg
+- https://i.loli.net/2020/03/14/8YIgbVNFk5L9oGa.jpg
+- https://i.loli.net/2020/03/14/Bez93xOucIpPhEN.jpg
+- https://i.loli.net/2020/03/14/16LJm3htNIe4rGd.jpg
+- https://i.loli.net/2020/03/14/QSYAfFjmxNsKkqz.jpg
+# - /medias/featureimages/21.jpg
+# - /medias/featureimages/22.jpg
+# - /medias/featureimages/23.jpg
 
 # default configs that the default policy for every articles/posts
 # default 配置文章的默认转载规则
