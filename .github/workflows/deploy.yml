@@ -28,7 +28,7 @@ jobs:
         git config --global user.email 'idongliming@qq.com'
         npm i -g hexo-cli
         npm i
-        git clone -b master git@github.com:blinkfox/hexo-theme-matery.git themes/matery
+        git clone -b v1.2.2 git@github.com:blinkfox/hexo-theme-matery.git themes/matery
         cp source/_data/matery.yml themes/matery/_config.yml
         cp source/_data/avatar.jpg themes/matery/source/medias/avatar.jpg
     - name: deploy to github 
