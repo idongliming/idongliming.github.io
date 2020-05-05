@@ -29,3 +29,4 @@ date: 2020-05-04 16:32:35
 - 一键发布，不用写命令了，支持github action和原生的hexo g -d
 
 > 从vscode换到hexo client 发一个水文试试效果
+  发现一个坑，fornont-mattser这个软件默认给 null ，我用的主题有个选项是密码，会给文件加密
