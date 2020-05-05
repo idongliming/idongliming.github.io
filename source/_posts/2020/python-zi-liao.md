@@ -4,9 +4,14 @@ categories:
   - 学习笔记
 tags:
   - 文档
-
 toc: false
 date: 2020-05-04 17:38:26
+keywords:
+top:
+cover:
+summary:
+password:
+mathjax:
 ---
 
 python相关的学习资料总结索引
@@ -60,11 +65,12 @@ python相关的学习资料总结索引
 
 常用命令
 
-- 创建虚拟环境 `conda create --name <env_name> python=3.6` 创建了一个使用python3.6的虚拟环境
-- 进入虚拟环境 `activate <env_name>`
+- 创建虚拟环境 `conda create --name 虚拟环境的名字 python=3.6` 创建了一个使用python3.6的虚拟环境
+- 进入虚拟环境 `activate 虚拟环境的名字`
 - 退出 `deactivate` 或者直接关掉终端（cmd）窗口
 
-> 进入虚拟环境后可以使用pip安装需要用到的包
+> 进入虚拟环境后可以使用pip安装需要用到的包，或者使用`conda install 包名` 命令安装需要的包
+	**特殊情况下`import`时使用的的名字和安装时的名字不同**比如openCV，百度查一下某某包的安装命令
 
 ## pip 常用命令
 
@@ -75,4 +81,3 @@ python相关的学习资料总结索引
 
 > 补充 : git 使用[教程](https://git-scm.com/) 或者廖雪峰的git教程
 	网络问题，从[这里](https://mirrors.tuna.tsinghua.edu.cn/help/pypi/) 按照说明配置清华大学镜像，其他镜像源还有 豆瓣 阿里等，根据所在位置选择合适的镜像源
-
