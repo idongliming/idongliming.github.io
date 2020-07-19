@@ -37,3 +37,8 @@ Host github.com
    ProxyCommand connect -H 127.0.0.1:1080 %h 22
 
 ```
+---------------------更新--------------------------
+
+- sstap netch等使用虚拟网卡强制代理工具
+
+- proxychains代理工具，强制代理，安装后编辑`/etc/proxychains.conf`文件在最后添加形如`socks5 127.0.0.1 1089`的代理规则支持http代理socks代理。git这边不需要修改，在需要代理的命令前加`proxychains4 `非常好用
