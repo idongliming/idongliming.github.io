@@ -8,7 +8,7 @@
     "push": "git add . && git commit -m\"add a post\" && git push origin source"
   },
   "hexo": {
-    "version": "4.2.0"
+    "version": "3.8.0"
   },
   "dependencies": {
     "hexo": "^4.0.0",
