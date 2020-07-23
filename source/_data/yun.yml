@@ -70,22 +70,27 @@ footer:
   since: 2017
 
   live_time:
-    enable: false
-    prefix: 本博客已萌萌哒地运行
+    enable: true
+    prefix: 已运行
     suffix: (●'◡'●)
     start_time: "2017-12-12T13:00:21"
 
 comment:
-  enable: false
+  enable: true
   icon: icon-chat-3-line
   tips:
-    - 点击按钮跳转 GitHub Issues 评论。
-    - 若没有本文 Issue，您可以使用 Comment 模版新建。
+    - 没有评论系统
+    - 如需联系可发
+    - 邮箱或电报
 
 # GitHub Issues Link Button
 # https://help.github.com/en/github/searching-for-information-on-github/searching-issues-and-pull-requests
 github_issues:
   enable: false
+
+local_search:
+  enable: true
+  src: /js/search/local-search.js
 
 # Analysis
 # ---------------
