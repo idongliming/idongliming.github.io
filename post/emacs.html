@@ -1,0 +1,181 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#0078E7"><meta name="author" content="idongliming"><meta name="copyright" content="idongliming"><meta name="generator" content="Hexo 4.2.1"><meta name="theme" content="hexo-theme-yun"><title>Emacs | idongliming's Dirty life</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap" media="none" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/star-markdown-css@0.1.15/dist/yun/yun-markdown.min.css"><script src="//at.alicdn.com/t/font_1140697_stqaphw3j4.js" async></script><script src="https://cdn.jsdelivr.net/npm/scrollreveal/dist/scrollreveal.min.js" defer></script><script>document.addEventListener("DOMContentLoaded", () => {
+  [".post-card",".post-content img"].forEach((target)=> {
+    ScrollReveal().reveal(target);
+  })
+});
+</script><link rel="shortcut icon" type="image/svg+xml" href="/avatar.jpg"><link rel="mask-icon" href="/avatar.jpg" color="#0078E7"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="stylesheet" href="/css/hexo-theme-yun.css"><link rel="alternate" href="/atom.xml" title="idongliming's Dirty life"><script id="yun-config">
+    const Yun = window.Yun || {};
+    window.CONFIG = {"root":"/","title":"无名的小站","version":"0.9.3","anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"https://v1.hitokoto.cn","hitokoto":true},"local_search":{"path":"/search.xml"},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194"]}};
+  </script><link rel="preconnect" href="https://www.google-analytics.com" crossorigin><link rel="preconnect" href="https://stats.g.doubleclick.net" crossorigin><script async src="https://www.googletagmanager.com/gtag/js?id=UA-142594716-1"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-142594716-1');</script><meta name="description" content="约定：C- 前缀表示 Ctrl，M- 前缀表示 Alt，S- 前缀表示 Shift，上档字符比如 @ 的实际按键应为 Shift+2。 移动上 C-p 下 C-n 左 C-b 右 C-f 前一个词首 M-b 后一个词尾 M-f">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Emacs">
+<meta property="og:url" content="https://idongliming.github.io/post/emacs.html">
+<meta property="og:site_name" content="idongliming&#39;s Dirty life">
+<meta property="og:description" content="约定：C- 前缀表示 Ctrl，M- 前缀表示 Alt，S- 前缀表示 Shift，上档字符比如 @ 的实际按键应为 Shift+2。 移动上 C-p 下 C-n 左 C-b 右 C-f 前一个词首 M-b 后一个词尾 M-f">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-07-24T05:26:13.000Z">
+<meta property="article:modified_time" content="2020-07-24T11:09:30.708Z">
+<meta property="article:author" content="idongliming">
+<meta property="article:tag" content="工具">
+<meta property="article:tag" content="emacs">
+<meta property="article:tag" content="linux">
+<meta name="twitter:card" content="summary"><script src="/js/ui/mode.js"></script><link rel="alternate" href="/atom.xml" title="idongliming's Dirty life" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head><body><script defer src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script defer src="/js/ui/fireworks.js"></script><canvas class="fireworks"></canvas><div class="container"><a class="sidebar-toggle hty-icon-button" id="menu-btn"><div class="hamburger hamburger--spin" type="button"><span class="hamburger-box"><span class="hamburger-inner"></span></span></div></a><div class="sidebar-toggle sidebar-overlay"></div><aside class="sidebar"><script defer src="/js/sidebar.js"></script><ul class="sidebar-nav"><li class="sidebar-nav-item sidebar-nav-toc hty-icon-button sidebar-nav-active" data-target="post-toc-wrap" title="文章目录"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-list-ordered"></use></svg></li><li class="sidebar-nav-item sidebar-nav-overview hty-icon-button" data-target="site-overview-wrap" title="站点概览"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-passport-line"></use></svg></li></ul><div class="sidebar-panel" id="site-overview-wrap"><div class="site-info fix-top"><a class="site-author-avatar" href="/about/" title="idongliming"><img width="96" loading="lazy" src="/avatar.jpg" alt="idongliming"></a><div class="site-author-name"><a href="/about/">idongliming</a></div><a class="site-name" href="/about/site.html">idongliming's Dirty life</a><sub class="site-subtitle">这只是我的笔记和吐槽</sub><div class="site-desciption"></div></div><nav class="site-state"><a class="site-state-item hty-icon-button icon-home" href="/" title="首页"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-home-4-line"></use></svg></span></a><div class="site-state-item"><a href="/archives/" title="归档"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-archive-line"></use></svg></span><span class="site-state-item-count">39</span></a></div><div class="site-state-item"><a href="/categories/" title="分类"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-folder-2-line"></use></svg></span><span class="site-state-item-count">6</span></a></div><div class="site-state-item"><a href="/tags/" title="标签"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="site-state-item-count">32</span></a></div><a class="site-state-item hty-icon-button" href="https://yun.yunyoujun.cn" target="_blank" rel="noopener" title="文档"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-settings-line"></use></svg></span></a></nav><hr style="margin-bottom:0.5rem"><div class="links-of-author"><a class="links-of-author-item hty-icon-button" rel="noopener" href="/atom.xml" title="RSS" target="_blank" style="color:orange"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-rss-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://github.com/idongliming" title="GitHub" target="_blank" style="color:#6e5494"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-github-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://www.zhihu.com/people/idongliming/" title="知乎" target="_blank" style="color:#0084FF"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-zhihu-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://twitter.com/idongliming" title="Twitter" target="_blank" style="color:#1da1f2"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-twitter-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://t.me/idongliming" title="Telegram" target="_blank" style="color:#0088CC"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-telegram-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="mailto:idongliming@qq.com" title="E-Mail" target="_blank" style="color:#8E71C1"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-mail-line"></use></svg></a></div><hr style="margin:0.5rem 1rem"><div class="links"><a class="links-item hty-icon-button" href="/links/" title="链接" style="color:dodgerblue"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-genderless-line"></use></svg></a></div><br><a class="links-item hty-icon-button" id="toggle-mode-btn" href="javascript:;" title="Mode" style="color: #f1cb64"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-contrast-2-line"></use></svg></a></div><div class="sidebar-panel sidebar-panel-active" id="post-toc-wrap"><div class="post-toc"><div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#移动"><span class="toc-number">1.</span> <span class="toc-text">移动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#编辑"><span class="toc-number">2.</span> <span class="toc-text">编辑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#缓冲区"><span class="toc-number">3.</span> <span class="toc-text">缓冲区</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#窗口"><span class="toc-number">4.</span> <span class="toc-text">窗口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文件"><span class="toc-number">5.</span> <span class="toc-text">文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码"><span class="toc-number">6.</span> <span class="toc-text">代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#命令"><span class="toc-number">7.</span> <span class="toc-text">命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#重复"><span class="toc-number">8.</span> <span class="toc-text">重复</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#外部命令"><span class="toc-number">9.</span> <span class="toc-text">外部命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模式"><span class="toc-number">10.</span> <span class="toc-text">模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#显示"><span class="toc-number">11.</span> <span class="toc-text">显示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#搜索"><span class="toc-number">12.</span> <span class="toc-text">搜索</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#帮助"><span class="toc-number">13.</span> <span class="toc-text">帮助</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#右键菜单"><span class="toc-number">14.</span> <span class="toc-text">右键菜单</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#插件"><span class="toc-number">15.</span> <span class="toc-text">插件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#evil-nerd-commenter"><span class="toc-number">15.1.</span> <span class="toc-text">evil-nerd-commenter</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#function-args"><span class="toc-number">15.2.</span> <span class="toc-text">function-args</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#hexl-mode"><span class="toc-number">15.3.</span> <span class="toc-text">hexl-mode</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ido"><span class="toc-number">15.4.</span> <span class="toc-text">ido</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#jedi"><span class="toc-number">15.5.</span> <span class="toc-text">jedi</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#projectile"><span class="toc-number">15.6.</span> <span class="toc-text">projectile</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#python"><span class="toc-number">15.7.</span> <span class="toc-text">python</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#package"><span class="toc-number">15.8.</span> <span class="toc-text">package</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其它需求"><span class="toc-number">16.</span> <span class="toc-text">其它需求</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#统计字数"><span class="toc-number">16.1.</span> <span class="toc-text">统计字数</span></a></li></ol></li></ol></div></div></div></aside><main class="sidebar-translate" id="content"><div id="post"><article class="post-block" itemscope itemtype="https://schema.org/Article"><link itemprop="mainEntityOfPage" href="https://idongliming.github.io/post/emacs.html"><span hidden itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="name" content="idongliming"><meta itemprop="description"></span><span hidden itemprop="publisher" itemscope itemtype="https://schema.org/Organization"><meta itemprop="name" content="idongliming's Dirty life"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">Emacs</h1><div class="post-meta"><div class="post-time" style="display:inline-block"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-calendar-line"></use></svg></span> <time title="创建时间：2019-07-24 13:26:13" itemprop="dateCreated datePublished" datetime="2019-07-24T13:26:13+08:00">2019-07-24</time><span class="post-meta-divider">-</span><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-calendar-2-line"></use></svg></span> <time title="修改时间：2020-07-24 19:09:30" itemprop="dateModified" datetime="2020-07-24T19:09:30+08:00">2020-07-24</time></div><div class="post-classify"><span class="post-category"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-folder-line"></use></svg></span> <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a class="category" href="/categories/%E4%BB%8B%E7%BB%8D/" style="--text-color:var(--hty-text-color)" itemprop="url" rel="index"><span itemprop="text">介绍</span></a></span></span><span class="post-tag"><span class="post-meta-divider">-</span><a class="tag" href="/tags/%E5%B7%A5%E5%85%B7/" style="--text-color:var(--hty-text-color)"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="tag-name">工具</span></a><a class="tag" href="/tags/emacs/" style="--text-color:var(--hty-text-color)"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="tag-name">emacs</span></a><a class="tag" href="/tags/linux/" style="--text-color:var(--hty-text-color)"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="tag-name">linux</span></a></span></div></div></header><section class="post-body" itemprop="articleBody"><div class="post-content markdown-body" style="--smc-primary:#0078E7;"><p>约定：<code>C-</code> 前缀表示 Ctrl，<code>M-</code> 前缀表示 Alt，<code>S-</code> 前缀表示 Shift，上档字符比如 <code>@</code> 的实际按键应为 <code>Shift+2</code>。</p>
+<h3 id="移动"><a href="#移动" class="headerlink" title="移动"></a>移动</h3><p>上 C-p</p>
+<p>下 C-n</p>
+<p>左 C-b</p>
+<p>右 C-f</p>
+<p>前一个词首 M-b</p>
+<p>后一个词尾 M-f</p>
+<a id="more"></a>
+<p>跳到某一行 M-gg</p>
+<p>行首 C-a</p>
+<p>行尾 C-e</p>
+<p>句首/前一个句首 M-a</p>
+<p>名尾/前一个句尾 M-e</p>
+<p>向前一个段落 M-{</p>
+<p>向后一个段落 M-}</p>
+<p>下翻页 C-v</p>
+<p>上翻页 M-v</p>
+<p>跳到文首 M-&lt;</p>
+<p>跳到文尾 M-&gt;</p>
+<p>当前光标行移动到屏显上/中/下部 C-l</p>
+<h3 id="编辑"><a href="#编辑" class="headerlink" title="编辑"></a>编辑</h3><p>选取块 C-@</p>
+<p>复制 M-w</p>
+<p>剪切 C-w</p>
+<p>粘贴 C-y</p>
+<p>全选 C-x h</p>
+<p>切换只读/编辑模式 C-x C-q</p>
+<p>交换当前字符与前一字符 C-t</p>
+<p>交换当前单词与后一单词 M-t</p>
+<p>交换当前行与上一行 C-x C-t</p>
+<p>撤消 C-/ 或 C-x u</p>
+<p>撤消撤消 C-g C-/</p>
+<p>当前单全大写 M-u</p>
+<p>当前单词全小写 M-l</p>
+<h3 id="缓冲区"><a href="#缓冲区" class="headerlink" title="缓冲区"></a>缓冲区</h3><p>查看所有打开的缓冲区 C-x C-b</p>
+<p>切换缓冲区 C-x b</p>
+<p>关闭缓冲区 C-x k</p>
+<p>关闭 emacsclientw.exe 打开的缓冲区 C-x #</p>
+<h3 id="窗口"><a href="#窗口" class="headerlink" title="窗口"></a>窗口</h3><p>关闭其它窗口 C-x 1</p>
+<p>关闭当前窗口 C-x 0</p>
+<p>在下面分割出一个窗口 C-x 2</p>
+<p>在右边分割出一个窗口 C-x 3</p>
+<p>依次切换到其它窗口 C-x o</p>
+<h3 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h3><p>打开文件 C-x C-f</p>
+<p>保存文件 C-x C-s</p>
+<p>保存所有打开的文件 C-x s</p>
+<p>在当前位置插入某文件内容 C-x i</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p>注释选中块 C-x r t</p>
+<p>反注释选中块 C-x r k</p>
+<p>注释/反注释 M-;</p>
+<p>格式化光标之前的代码 C-M-\</p>
+<p>与上一行合并 M-^</p>
+<p>带注释前缀换行 M-j</p>
+<p>解释运行当前 elisp 语句/函数 C-M-x</p>
+<h3 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h3><p>输入命令 M-x</p>
+<p>运行 SHELL shell</p>
+<p>运行 ESHELL eshell</p>
+<p>列出 elpa 上可用包 list-packages</p>
+<p>安装插件 package-install</p>
+<p>格式化输出 JSON json-pretty-print-buffer</p>
+<p>elisp 交互解释器 ielm</p>
+<p>解释运行当前 Buffer eval-buffer</p>
+<p>中止一个操作 C-g</p>
+<p>对选中区域执行命令 M-|</p>
+<h3 id="重复"><a href="#重复" class="headerlink" title="重复"></a>重复</h3><p>重复操作 50 次 M-50 命令</p>
+<h3 id="外部命令"><a href="#外部命令" class="headerlink" title="外部命令"></a>外部命令</h3><p>输入外部命令 M-!</p>
+<h3 id="模式"><a href="#模式" class="headerlink" title="模式"></a>模式</h3><p>打开/关闭某个模式 M-x 模式名</p>
+<h3 id="显示"><a href="#显示" class="headerlink" title="显示"></a>显示</h3><p>放大字体 C-x C-=</p>
+<p>缩小字体 C-x C–</p>
+<p>重置字体 C-x C-0</p>
+<p>自定义颜色 M-x customize-face <RETURN> default <RETURN></RETURN></RETURN></p>
+<h3 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h3><p>渐进的搜索 C-s</p>
+<p>往回搜索 C-r</p>
+<p>按了回车之后继续搜索 C-s C-s</p>
+<p>按了回车之后往回搜索 C-r C-r</p>
+<h3 id="帮助"><a href="#帮助" class="headerlink" title="帮助"></a>帮助</h3><p>查看变量的文档 C-h v</p>
+<p>查看函数的文档 C-h f</p>
+<p>查看某快捷键说明 C-h k</p>
+<p>打开 Tutorial C-h t</p>
+<p>打开帮助文档 C-h i</p>
+<h3 id="右键菜单"><a href="#右键菜单" class="headerlink" title="右键菜单"></a>右键菜单</h3><p>将如下代码命令为 .reg 文件，运行后可为鼠标右键添加菜单项「Edit with Emacs」（运行之前将 exe 路径先替换为自己的）。</p>
+<p>前提是在配置文件里添加了 <code>(server-start)</code>。</p>
+<pre><code>Windows Registry Editor Version 5.00
+
+[HKEY_CLASSES_ROOT\*\shell\Edit with Emacs]
+
+[HKEY_CLASSES_ROOT\*\shell\Edit with Emacs\command]
+@=&quot;\&quot;D:\\emacs\\bin\\emacsclientw.exe\&quot; -a \&quot;D:\\emacs\\bin\\runemacs.exe\&quot; \&quot;%1\&quot;&quot;</code></pre><h3 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h3><h4 id="evil-nerd-commenter"><a href="#evil-nerd-commenter" class="headerlink" title="evil-nerd-commenter"></a>evil-nerd-commenter</h4><p>注释/反注释 M-;</p>
+<p>注释多行 M-9 M-;</p>
+<h4 id="function-args"><a href="#function-args" class="headerlink" title="function-args"></a>function-args</h4><p>提示函数参数 M-i</p>
+<p>显示本文件大纲选择某项后跳转 C-M-j</p>
+<p>跳转到函数定义（显示函数参数的时候有效） M-j</p>
+<h4 id="hexl-mode"><a href="#hexl-mode" class="headerlink" title="hexl-mode"></a>hexl-mode</h4><p>进入十六进制模式 M-x hexl-mode</p>
+<p>退出十六进制模式 M-x hexl-mode-exit</p>
+<p>输入十六进制数 M-x hexl-insert-hex-char</p>
+<h4 id="ido"><a href="#ido" class="headerlink" title="ido"></a>ido</h4><p>切换到上一个选项 C-r</p>
+<p>切换到下一个选项 C-s</p>
+<h4 id="jedi"><a href="#jedi" class="headerlink" title="jedi"></a>jedi</h4><p>显示光标处 Python 模块或函数的文档 C-c ?</p>
+<h4 id="projectile"><a href="#projectile" class="headerlink" title="projectile"></a>projectile</h4><p>显示/刷新当前项目文件列表 C-c p f</p>
+<h4 id="python"><a href="#python" class="headerlink" title="python"></a>python</h4><p>打开 Python 交互式Shell C-c C-p</p>
+<h4 id="package"><a href="#package" class="headerlink" title="package"></a>package</h4><p>升级已安装的包 U</p>
+<p>标记要安装的包 i</p>
+<p>标记要删除的包 d</p>
+<p>取消标记 u</p>
+<p>执行操作 x</p>
+<p>上一行 p</p>
+<p>下一行 n</p>
+<p>刷新包列表 r</p>
+<p>重置缓冲区 g</p>
+<p>退出窗口 q</p>
+<h3 id="其它需求"><a href="#其它需求" class="headerlink" title="其它需求"></a>其它需求</h3><h4 id="统计字数"><a href="#统计字数" class="headerlink" title="统计字数"></a>统计字数</h4><p>（前提是 shell 下能运行 wc 程序）</p>
+<ol>
+<li>选中要统计区域</li>
+<li>M-|</li>
+<li>wc -c</li>
+</ol>
+</div><ul class="post-copyright"><li class="post-copyright-author"><strong>本文作者：</strong>idongliming</li><li class="post-copyright-link"><strong>本文链接：</strong><a href="https://idongliming.github.io/post/emacs.html" title="Emacs">https://idongliming.github.io/post/emacs.html</a></li><li class="post-copyright-license"><strong>版权声明：</strong>本博客所有文章除特别声明外，均默认采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><svg class="icon"><use xlink:href="#icon-creative-commons-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-by-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-nc-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-sa-line"></use></svg></a> 许可协议。</li></ul></section></article><div class="post-nav"><div class="post-nav-item"><a class="post-nav-prev" href="/post/chinese-copywriting-guidelines.html" rel="prev" title="中文文案排版指北"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-left-s-line"></use></svg><span class="post-nav-text">中文文案排版指北</span></a></div><div class="post-nav-item"><a class="post-nav-next" href="/post/mybatis-example.html" rel="next" title="mybatisExmple"><span class="post-nav-text">mybatisExmple</span><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-right-s-line"></use></svg></a></div></div></div><div id="comment"><div class="comment-tooltip text-center"><span>没有评论系统</span><br><span>如需联系可发</span><br><span>邮箱或电报</span><br></div></div></main><footer class="sidebar-translate" id="footer"><div class="copyright"><span>&copy; 2017 – 2020 </span><span class="with-love" id="animate"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-cloud-line"></use></svg></span><span class="author"> idongliming</span></div><div class="powered"><span>由 <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> 驱动 v4.2.1</span><span class="footer-separator">|</span><span>主题 - <a rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun" target="_blank"><span>Yun</span></a> v0.9.3</span></div><div class="live_time"><span>已运行</span><span id="display_live_time"></span><span class="moe-text">(●'◡'●)</span><script>function blog_live_time() {
+  window.setTimeout(blog_live_time, 1000);
+  const start = new Date('2017-12-12T13:00:21');
+  const now = new Date();
+  const timeDiff = (now.getTime() - start.getTime());
+  const msPerMinute = 60 * 1000;
+  const msPerHour = 60 * msPerMinute;
+  const msPerDay = 24 * msPerHour;
+  const passDay = Math.floor(timeDiff / msPerDay);
+  const passHour = Math.floor((timeDiff % msPerDay) / 60 / 60 / 1000);
+  const passMinute = Math.floor((timeDiff % msPerHour) / 60 / 1000);
+  const passSecond = Math.floor((timeDiff % msPerMinute) / 1000);
+  display_live_time.innerHTML = " " + passDay + " 天 " + passHour + " 小时 " + passMinute + " 分 " + passSecond + " 秒";
+}
+blog_live_time();
+</script></div></footer><a class="hty-icon-button" id="goUp" aria-label="back-to-top" href="#"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-up-s-line"></use></svg><svg class="progress-circle-container" viewBox="0 0 100 100"><circle class="progress-circle" id="progressCircle" cx="50" cy="50" r="48" fill="none" stroke="#0078E7" stroke-width="2" stroke-linecap="round"></circle></svg></a><a class="popup-trigger hty-icon-button icon-search" id="search" href="javascript:;" title="搜索"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-search-line"></use></svg></span></a><script>window.addEventListener("DOMContentLoaded", () => {
+  // Handle and trigger popup window
+  document.querySelector(".popup-trigger").addEventListener("click", () => {
+    document.querySelector(".popup").classList.add("show");
+    setTimeout(() => {
+      document.querySelector(".search-input").focus();
+    }, 100);
+  });
+
+  // Monitor main search box
+  const onPopupClose = () => {
+    document.querySelector(".popup").classList.remove("show");
+  };
+
+  document.querySelector(".popup-btn-close").addEventListener("click", () => {
+    onPopupClose();
+  });
+
+  window.addEventListener("keyup", event => {
+    if (event.key === "Escape") {
+      onPopupClose();
+    }
+  });
+});
+</script><script src="/js/search/local-search.js" defer></script><div class="popup search-popup"><div class="search-header"><span class="popup-btn-close close-icon hty-icon-button"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-close-line"></use></svg></span></div><div class="search-input-container"><input class="search-input" id="local-search-input" type="text" placeholder="搜索..." value=""></div><div id="local-search-result"></div></div></div><script defer src="/js/utils.js"></script><script defer src="/js/hexo-theme-yun.js"></script></body></html>

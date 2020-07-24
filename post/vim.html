@@ -1,0 +1,697 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#0078E7"><meta name="author" content="idongliming"><meta name="copyright" content="idongliming"><meta name="generator" content="Hexo 4.2.1"><meta name="theme" content="hexo-theme-yun"><title>Vim | idongliming's Dirty life</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap" media="none" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/star-markdown-css@0.1.15/dist/yun/yun-markdown.min.css"><script src="//at.alicdn.com/t/font_1140697_stqaphw3j4.js" async></script><script src="https://cdn.jsdelivr.net/npm/scrollreveal/dist/scrollreveal.min.js" defer></script><script>document.addEventListener("DOMContentLoaded", () => {
+  [".post-card",".post-content img"].forEach((target)=> {
+    ScrollReveal().reveal(target);
+  })
+});
+</script><link rel="shortcut icon" type="image/svg+xml" href="/avatar.jpg"><link rel="mask-icon" href="/avatar.jpg" color="#0078E7"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="stylesheet" href="/css/hexo-theme-yun.css"><link rel="alternate" href="/atom.xml" title="idongliming's Dirty life"><script id="yun-config">
+    const Yun = window.Yun || {};
+    window.CONFIG = {"root":"/","title":"无名的小站","version":"0.9.3","anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"https://v1.hitokoto.cn","hitokoto":true},"local_search":{"path":"/search.xml"},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194"]}};
+  </script><link rel="preconnect" href="https://www.google-analytics.com" crossorigin><link rel="preconnect" href="https://stats.g.doubleclick.net" crossorigin><script async src="https://www.googletagmanager.com/gtag/js?id=UA-142594716-1"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-142594716-1');</script><meta name="description" content="移动以字（符）为单位">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vim">
+<meta property="og:url" content="https://idongliming.github.io/post/vim.html">
+<meta property="og:site_name" content="idongliming&#39;s Dirty life">
+<meta property="og:description" content="移动以字（符）为单位">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-07-24T05:26:13.000Z">
+<meta property="article:modified_time" content="2020-07-24T11:09:30.712Z">
+<meta property="article:author" content="idongliming">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="vim">
+<meta name="twitter:card" content="summary"><script src="/js/ui/mode.js"></script><link rel="alternate" href="/atom.xml" title="idongliming's Dirty life" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head><body><script defer src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script defer src="/js/ui/fireworks.js"></script><canvas class="fireworks"></canvas><div class="container"><a class="sidebar-toggle hty-icon-button" id="menu-btn"><div class="hamburger hamburger--spin" type="button"><span class="hamburger-box"><span class="hamburger-inner"></span></span></div></a><div class="sidebar-toggle sidebar-overlay"></div><aside class="sidebar"><script defer src="/js/sidebar.js"></script><ul class="sidebar-nav"><li class="sidebar-nav-item sidebar-nav-toc hty-icon-button sidebar-nav-active" data-target="post-toc-wrap" title="文章目录"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-list-ordered"></use></svg></li><li class="sidebar-nav-item sidebar-nav-overview hty-icon-button" data-target="site-overview-wrap" title="站点概览"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-passport-line"></use></svg></li></ul><div class="sidebar-panel" id="site-overview-wrap"><div class="site-info fix-top"><a class="site-author-avatar" href="/about/" title="idongliming"><img width="96" loading="lazy" src="/avatar.jpg" alt="idongliming"></a><div class="site-author-name"><a href="/about/">idongliming</a></div><a class="site-name" href="/about/site.html">idongliming's Dirty life</a><sub class="site-subtitle">这只是我的笔记和吐槽</sub><div class="site-desciption"></div></div><nav class="site-state"><a class="site-state-item hty-icon-button icon-home" href="/" title="首页"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-home-4-line"></use></svg></span></a><div class="site-state-item"><a href="/archives/" title="归档"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-archive-line"></use></svg></span><span class="site-state-item-count">39</span></a></div><div class="site-state-item"><a href="/categories/" title="分类"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-folder-2-line"></use></svg></span><span class="site-state-item-count">6</span></a></div><div class="site-state-item"><a href="/tags/" title="标签"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="site-state-item-count">32</span></a></div><a class="site-state-item hty-icon-button" href="https://yun.yunyoujun.cn" target="_blank" rel="noopener" title="文档"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-settings-line"></use></svg></span></a></nav><hr style="margin-bottom:0.5rem"><div class="links-of-author"><a class="links-of-author-item hty-icon-button" rel="noopener" href="/atom.xml" title="RSS" target="_blank" style="color:orange"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-rss-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://github.com/idongliming" title="GitHub" target="_blank" style="color:#6e5494"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-github-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://www.zhihu.com/people/idongliming/" title="知乎" target="_blank" style="color:#0084FF"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-zhihu-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://twitter.com/idongliming" title="Twitter" target="_blank" style="color:#1da1f2"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-twitter-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://t.me/idongliming" title="Telegram" target="_blank" style="color:#0088CC"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-telegram-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="mailto:idongliming@qq.com" title="E-Mail" target="_blank" style="color:#8E71C1"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-mail-line"></use></svg></a></div><hr style="margin:0.5rem 1rem"><div class="links"><a class="links-item hty-icon-button" href="/links/" title="链接" style="color:dodgerblue"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-genderless-line"></use></svg></a></div><br><a class="links-item hty-icon-button" id="toggle-mode-btn" href="javascript:;" title="Mode" style="color: #f1cb64"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-contrast-2-line"></use></svg></a></div><div class="sidebar-panel sidebar-panel-active" id="post-toc-wrap"><div class="post-toc"><div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#移动"><span class="toc-number">1.</span> <span class="toc-text">移动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#编辑"><span class="toc-number">2.</span> <span class="toc-text">编辑</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#复制"><span class="toc-number">2.1.</span> <span class="toc-text">复制</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#粘贴"><span class="toc-number">2.2.</span> <span class="toc-text">粘贴</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#剪切"><span class="toc-number">2.3.</span> <span class="toc-text">剪切</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#替换"><span class="toc-number">2.4.</span> <span class="toc-text">替换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#大小写"><span class="toc-number">2.5.</span> <span class="toc-text">大小写</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#选择"><span class="toc-number">3.</span> <span class="toc-text">选择</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#搜索"><span class="toc-number">4.</span> <span class="toc-text">搜索</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#正则表达式"><span class="toc-number">5.</span> <span class="toc-text">正则表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常用"><span class="toc-number">6.</span> <span class="toc-text">常用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#全局"><span class="toc-number">7.</span> <span class="toc-text">全局</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文件操作"><span class="toc-number">8.</span> <span class="toc-text">文件操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vimdiff"><span class="toc-number">9.</span> <span class="toc-text">vimdiff</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Buffer"><span class="toc-number">10.</span> <span class="toc-text">Buffer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#组合命令"><span class="toc-number">11.</span> <span class="toc-text">组合命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码"><span class="toc-number">12.</span> <span class="toc-text">代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#插件"><span class="toc-number">13.</span> <span class="toc-text">插件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#CtrlP"><span class="toc-number">13.1.</span> <span class="toc-text">CtrlP</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#LeaderF"><span class="toc-number">13.2.</span> <span class="toc-text">LeaderF</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#vim-table-mode"><span class="toc-number">13.3.</span> <span class="toc-text">vim-table-mode</span></a></li></ol></li></ol></div></div></div></aside><main class="sidebar-translate" id="content"><div id="post"><article class="post-block" itemscope itemtype="https://schema.org/Article"><link itemprop="mainEntityOfPage" href="https://idongliming.github.io/post/vim.html"><span hidden itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="name" content="idongliming"><meta itemprop="description"></span><span hidden itemprop="publisher" itemscope itemtype="https://schema.org/Organization"><meta itemprop="name" content="idongliming's Dirty life"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">Vim</h1><div class="post-meta"><div class="post-time" style="display:inline-block"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-calendar-line"></use></svg></span> <time title="创建时间：2019-07-24 13:26:13" itemprop="dateCreated datePublished" datetime="2019-07-24T13:26:13+08:00">2019-07-24</time><span class="post-meta-divider">-</span><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-calendar-2-line"></use></svg></span> <time title="修改时间：2020-07-24 19:09:30" itemprop="dateModified" datetime="2020-07-24T19:09:30+08:00">2020-07-24</time></div><div class="post-classify"><span class="post-category"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-folder-line"></use></svg></span> <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a class="category" href="/categories/%E4%BB%8B%E7%BB%8D/" style="--text-color:var(--hty-text-color)" itemprop="url" rel="index"><span itemprop="text">介绍</span></a></span></span><span class="post-tag"><span class="post-meta-divider">-</span><a class="tag" href="/tags/linux/" style="--text-color:var(--hty-text-color)"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="tag-name">linux</span></a><a class="tag" href="/tags/vim/" style="--text-color:var(--hty-text-color)"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="tag-name">vim</span></a></span></div></div></header><section class="post-body" itemprop="articleBody"><div class="post-content markdown-body" style="--smc-primary:#0078E7;"><h3 id="移动"><a href="#移动" class="headerlink" title="移动"></a>移动</h3><p><strong>以字（符）为单位</strong></p>
+<a id="more"></a>
+<table>
+<thead>
+<tr>
+<th align="left">功能</th>
+<th align="left">按键</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">上</td>
+<td align="left"><code>k</code></td>
+</tr>
+<tr>
+<td align="left">下</td>
+<td align="left"><code>j</code></td>
+</tr>
+<tr>
+<td align="left">左</td>
+<td align="left"><code>h</code></td>
+</tr>
+<tr>
+<td align="left">右</td>
+<td align="left"><code>l</code></td>
+</tr>
+</tbody></table>
+<p><strong>以单词为单位</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">功能</th>
+<th align="left">按键</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">前一个单词尾</td>
+<td align="left"><code>ge</code></td>
+</tr>
+<tr>
+<td align="left">后一个单词首</td>
+<td align="left"><code>w</code></td>
+</tr>
+<tr>
+<td align="left">本单词首（已在本词首则跳到前一单词首）</td>
+<td align="left"><code>b</code></td>
+</tr>
+<tr>
+<td align="left">本单词尾（已在本词尾则跳到后一单词尾）</td>
+<td align="left"><code>e</code></td>
+</tr>
+</tbody></table>
+<p><strong>以屏幕为单位</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">功能</th>
+<th align="left">按键</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">向下翻页</td>
+<td align="left"><code>CTRL-f</code></td>
+</tr>
+<tr>
+<td align="left">向上翻页</td>
+<td align="left"><code>CTRL-b</code></td>
+</tr>
+<tr>
+<td align="left">向下翻半页</td>
+<td align="left"><code>CTRL-d</code></td>
+</tr>
+<tr>
+<td align="left">向上翻半页</td>
+<td align="left"><code>CTRL-u</code></td>
+</tr>
+<tr>
+<td align="left">向上一行</td>
+<td align="left"><code>CTRL-y</code></td>
+</tr>
+<tr>
+<td align="left">向下一行</td>
+<td align="left"><code>CTRL-e</code></td>
+</tr>
+<tr>
+<td align="left">光标移到屏幕上方</td>
+<td align="left"><code>H</code></td>
+</tr>
+<tr>
+<td align="left">光标移到屏幕中间</td>
+<td align="left"><code>M</code></td>
+</tr>
+<tr>
+<td align="left">光标移到屏幕下方</td>
+<td align="left"><code>L</code></td>
+</tr>
+<tr>
+<td align="left">光标所在位置移到屏幕上方</td>
+<td align="left"><code>zt</code></td>
+</tr>
+<tr>
+<td align="left">光标所在位置移到屏幕中间</td>
+<td align="left"><code>zz</code></td>
+</tr>
+<tr>
+<td align="left">光标所在位置移到屏幕下方</td>
+<td align="left"><code>zb</code></td>
+</tr>
+</tbody></table>
+<p><strong>行号</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">功能</th>
+<th align="left">按键</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">跳到第 num 行</td>
+<td align="left"><code>:num</code> 或 <code>numG</code> 或 <code>numgg</code></td>
+</tr>
+</tbody></table>
+<p><strong>文件</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">功能</th>
+<th align="left">按键</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">跳到文件头</td>
+<td align="left"><code>gg</code></td>
+</tr>
+<tr>
+<td align="left">跳到文件尾</td>
+<td align="left"><code>G</code></td>
+</tr>
+</tbody></table>
+<h3 id="编辑"><a href="#编辑" class="headerlink" title="编辑"></a>编辑</h3><h4 id="复制"><a href="#复制" class="headerlink" title="复制"></a>复制</h4><table>
+<thead>
+<tr>
+<th align="left">功能</th>
+<th align="left">按键</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">复制光标所在单词</td>
+<td align="left"><code>yiw</code></td>
+</tr>
+<tr>
+<td align="left">复制光标所在行</td>
+<td align="left"><code>yy</code></td>
+</tr>
+</tbody></table>
+<h4 id="粘贴"><a href="#粘贴" class="headerlink" title="粘贴"></a>粘贴</h4><table>
+<thead>
+<tr>
+<th align="left">功能</th>
+<th align="left">按键</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">在光标之后粘贴</td>
+<td align="left"><code>p</code></td>
+</tr>
+<tr>
+<td align="left">在光标之前粘贴</td>
+<td align="left"><code>P</code></td>
+</tr>
+</tbody></table>
+<h4 id="剪切"><a href="#剪切" class="headerlink" title="剪切"></a>剪切</h4><table>
+<thead>
+<tr>
+<th align="left">功能</th>
+<th align="left">按键</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">剪切选中区域</td>
+<td align="left"><code>d</code></td>
+</tr>
+<tr>
+<td align="left">剪切光标所在行</td>
+<td align="left"><code>dd</code></td>
+</tr>
+</tbody></table>
+<h4 id="替换"><a href="#替换" class="headerlink" title="替换"></a>替换</h4><table>
+<thead>
+<tr>
+<th align="left">功能</th>
+<th align="left">按键</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">将全文中的 str1 替换为 str2</td>
+<td align="left"><code>:%s/str1/str2/g</code></td>
+</tr>
+<tr>
+<td align="left">将 1 到 5 行中的 str1 替换为 str2</td>
+<td align="left"><code>:1,5s/str1/str2/g</code></td>
+</tr>
+</tbody></table>
+<h4 id="大小写"><a href="#大小写" class="headerlink" title="大小写"></a>大小写</h4><table>
+<thead>
+<tr>
+<th align="left">功能</th>
+<th align="left">按键</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">将选中内容大小写互换</td>
+<td align="left"><code>~</code></td>
+</tr>
+<tr>
+<td align="left">将选中内容全转为小写</td>
+<td align="left"><code>gu</code></td>
+</tr>
+<tr>
+<td align="left">将选中内容全转为大写</td>
+<td align="left"><code>gU</code></td>
+</tr>
+<tr>
+<td align="left">将当前行变成小写</td>
+<td align="left"><code>guu</code></td>
+</tr>
+<tr>
+<td align="left">将当前行变成大写</td>
+<td align="left"><code>gUU</code></td>
+</tr>
+</tbody></table>
+<h3 id="选择"><a href="#选择" class="headerlink" title="选择"></a>选择</h3><table>
+<thead>
+<tr>
+<th align="left">功能</th>
+<th align="left">按键</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">选中上一次选择的区域</td>
+<td align="left"><code>gv</code></td>
+</tr>
+<tr>
+<td align="left">选中括号内区域</td>
+<td align="left"><code>vi{</code>、<code>vi[</code>、<code>vi(</code></td>
+</tr>
+</tbody></table>
+<h3 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h3><table>
+<thead>
+<tr>
+<th align="left">功能</th>
+<th align="left">按键</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">向下查找字符串</td>
+<td align="left"><code>/str</code></td>
+</tr>
+<tr>
+<td align="left">向上查找字符串</td>
+<td align="left"><code>?str</code></td>
+</tr>
+<tr>
+<td align="left">查找下一个</td>
+<td align="left"><code>n</code></td>
+</tr>
+<tr>
+<td align="left">查找上一个</td>
+<td align="left"><code>N</code></td>
+</tr>
+<tr>
+<td align="left">向下查找光标所在单词</td>
+<td align="left"><code>*</code></td>
+</tr>
+<tr>
+<td align="left">向下查找光标所在单词</td>
+<td align="left"><code>#</code></td>
+</tr>
+</tbody></table>
+<h3 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h3><table>
+<thead>
+<tr>
+<th align="left">功能</th>
+<th align="left">按键</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">匹配单词左边界</td>
+<td align="left"><code>\&lt;</code></td>
+</tr>
+<tr>
+<td align="left">匹配单词右边界</td>
+<td align="left"><code>\&gt;</code></td>
+</tr>
+<tr>
+<td align="left">去重</td>
+<td align="left"><code>:g/^\(.*\)$\n\1/d</code></td>
+</tr>
+</tbody></table>
+<h3 id="常用"><a href="#常用" class="headerlink" title="常用"></a>常用</h3><table>
+<thead>
+<tr>
+<th align="left">功能</th>
+<th align="left">按键</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">删除空行</td>
+<td align="left"><code>:g/^$/d</code></td>
+</tr>
+<tr>
+<td align="left">撤销/UNDO</td>
+<td align="left"><code>u</code></td>
+</tr>
+<tr>
+<td align="left">重做/REDO</td>
+<td align="left"><code>C-r</code></td>
+</tr>
+<tr>
+<td align="left">统计行/单词/字符/字节数</td>
+<td align="left"><code>g C-g</code></td>
+</tr>
+<tr>
+<td align="left">去掉 UTF-8 BOM</td>
+<td align="left"><code>:set nobomb</code></td>
+</tr>
+<tr>
+<td align="left">保留 UTF-8 BOM</td>
+<td align="left"><code>:set bomb</code></td>
+</tr>
+</tbody></table>
+<h3 id="全局"><a href="#全局" class="headerlink" title="全局"></a>全局</h3><table>
+<thead>
+<tr>
+<th align="left">功能</th>
+<th align="left">按键</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">退出</td>
+<td align="left"><code>:q</code></td>
+</tr>
+<tr>
+<td align="left">强制执行</td>
+<td align="left"><code>!</code></td>
+</tr>
+<tr>
+<td align="left">执行外部命令</td>
+<td align="left"><code>:!</code></td>
+</tr>
+</tbody></table>
+<h3 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h3><table>
+<thead>
+<tr>
+<th align="left">功能</th>
+<th align="left">按键</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">打开</td>
+<td align="left"><code>:e</code></td>
+</tr>
+<tr>
+<td align="left">打开文件对话框</td>
+<td align="left"><code>:bro e</code></td>
+</tr>
+<tr>
+<td align="left">保存</td>
+<td align="left"><code>:w</code></td>
+</tr>
+<tr>
+<td align="left">另存为对话框</td>
+<td align="left"><code>:bro w</code></td>
+</tr>
+<tr>
+<td align="left">查看历史文件列表</td>
+<td align="left"><code>:ol</code></td>
+</tr>
+<tr>
+<td align="left">查看并打开历史文件</td>
+<td align="left"><code>:bro ol</code></td>
+</tr>
+<tr>
+<td align="left">重命名当前文件</td>
+<td align="left"><code>:f filename</code></td>
+</tr>
+</tbody></table>
+<h3 id="vimdiff"><a href="#vimdiff" class="headerlink" title="vimdiff"></a>vimdiff</h3><table>
+<thead>
+<tr>
+<th align="left">功能</th>
+<th align="left">按键</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">移动到上一个不同处</td>
+<td align="left"><code>[c</code></td>
+</tr>
+<tr>
+<td align="left">移动到下一个不同处</td>
+<td align="left"><code>]c</code></td>
+</tr>
+<tr>
+<td align="left">该差异点使用当前文件的</td>
+<td align="left"><code>dp</code></td>
+</tr>
+<tr>
+<td align="left">该差异点使用其它文件的</td>
+<td align="left"><code>do</code></td>
+</tr>
+<tr>
+<td align="left">手动刷新重新比较</td>
+<td align="left"><code>:diffupdate</code></td>
+</tr>
+</tbody></table>
+<h3 id="Buffer"><a href="#Buffer" class="headerlink" title="Buffer"></a>Buffer</h3><table>
+<thead>
+<tr>
+<th align="left">功能</th>
+<th align="left">按键</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">查看 Buffer 列表</td>
+<td align="left"><code>:ls</code></td>
+</tr>
+<tr>
+<td align="left">转到 Buffer 列表中的下一个 Buffer</td>
+<td align="left"><code>:bn</code></td>
+</tr>
+<tr>
+<td align="left">转到 Buffer 列表中的上一个 Buffer</td>
+<td align="left"><code>:bp</code></td>
+</tr>
+<tr>
+<td align="left">转到 Buffer 列表中的 num 号 Buffer</td>
+<td align="left"><code>:bnum</code></td>
+</tr>
+<tr>
+<td align="left">你之前待过的一个 Buffer</td>
+<td align="left"><code>:b#</code></td>
+</tr>
+<tr>
+<td align="left">从 Buffer 列表中删除 num 号 Buffer</td>
+<td align="left"><code>:bdnum</code></td>
+</tr>
+</tbody></table>
+<h3 id="组合命令"><a href="#组合命令" class="headerlink" title="组合命令"></a>组合命令</h3><p>可以使用 <code>|</code> 来组合命令，比如 <code>cmd1 | cmd2</code>。</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><table>
+<thead>
+<tr>
+<th align="left">功能</th>
+<th align="left">按键</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">格式化代码</td>
+<td align="left"><code>gg=G</code></td>
+</tr>
+<tr>
+<td align="left">去除 1-20 行首的行号</td>
+<td align="left"><code>:1,20s/^\\s\*[0-9]\*\\s\*//g</code></td>
+</tr>
+<tr>
+<td align="left">展开全部折叠</td>
+<td align="left"><code>zR</code></td>
+</tr>
+<tr>
+<td align="left">展开当前层级折叠</td>
+<td align="left"><code>zr</code></td>
+</tr>
+<tr>
+<td align="left">全部折叠</td>
+<td align="left"><code>zM</code></td>
+</tr>
+<tr>
+<td align="left">当前层级折叠</td>
+<td align="left"><code>zm</code></td>
+</tr>
+<tr>
+<td align="left">切换折叠/展开</td>
+<td align="left"><code>za</code></td>
+</tr>
+<tr>
+<td align="left">递归折叠/展开当前大区块</td>
+<td align="left"><code>zA</code></td>
+</tr>
+<tr>
+<td align="left">折叠当前区块</td>
+<td align="left"><code>zc</code></td>
+</tr>
+<tr>
+<td align="left">递归折叠当前大区块</td>
+<td align="left"><code>zC</code></td>
+</tr>
+<tr>
+<td align="left">展开当前区块</td>
+<td align="left"><code>zo</code></td>
+</tr>
+<tr>
+<td align="left">递归展开当前大区块</td>
+<td align="left"><code>zO</code></td>
+</tr>
+<tr>
+<td align="left">格式化 json 数据</td>
+<td align="left"><code>:%!python -m json.tool</code></td>
+</tr>
+<tr>
+<td align="left">缩进当前行</td>
+<td align="left"><code>&gt;&gt;</code></td>
+</tr>
+<tr>
+<td align="left">反缩进当前行</td>
+<td align="left"><code>&lt;&lt;</code></td>
+</tr>
+</tbody></table>
+<h3 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h3><h4 id="CtrlP"><a href="#CtrlP" class="headerlink" title="CtrlP"></a>CtrlP</h4><p>基础按键 <code>C-p</code></p>
+<table>
+<thead>
+<tr>
+<th align="left">功能</th>
+<th align="left">按键</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">刷新列表</td>
+<td align="left"><code>F5</code></td>
+</tr>
+<tr>
+<td align="left">切换文件/缓冲区/MRU</td>
+<td align="left"><code>C-f/b</code></td>
+</tr>
+<tr>
+<td align="left">切换全路径搜索/文件名搜索</td>
+<td align="left"><code>C-d</code></td>
+</tr>
+<tr>
+<td align="left">切换正则表达式模式</td>
+<td align="left"><code>C-r</code></td>
+</tr>
+<tr>
+<td align="left">上/下一个选项</td>
+<td align="left"><code>C-k/j</code></td>
+</tr>
+<tr>
+<td align="left">在新标签/垂直分割/水平分割打开文件</td>
+<td align="left"><code>C-t/v/x</code></td>
+</tr>
+<tr>
+<td align="left">历史选择记录的上/下一条</td>
+<td align="left"><code>C-p/n</code></td>
+</tr>
+<tr>
+<td align="left">创建文件和它的父路径</td>
+<td align="left"><code>C-y</code></td>
+</tr>
+<tr>
+<td align="left">标记并打开多个文件</td>
+<td align="left"><code>C-z C-o</code></td>
+</tr>
+<tr>
+<td align="left">退出 CtrlP</td>
+<td align="left"><code>C-c</code></td>
+</tr>
+</tbody></table>
+<h4 id="LeaderF"><a href="#LeaderF" class="headerlink" title="LeaderF"></a>LeaderF</h4><table>
+<thead>
+<tr>
+<th align="left">功能</th>
+<th align="left">按键</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">打开文件</td>
+<td align="left"><code>Leader-f</code></td>
+</tr>
+<tr>
+<td align="left">打开缓冲区</td>
+<td align="left"><code>Leader-b</code></td>
+</tr>
+<tr>
+<td align="left">打开 MRU</td>
+<td align="left"><code>Leader-m</code>（自定义的）</td>
+</tr>
+<tr>
+<td align="left">退出</td>
+<td align="left"><code>C-c</code></td>
+</tr>
+<tr>
+<td align="left">切换模糊查找和正则查找</td>
+<td align="left"><code>C-r</code></td>
+</tr>
+<tr>
+<td align="left">粘贴</td>
+<td align="left"><code>C-v</code></td>
+</tr>
+<tr>
+<td align="left">清空输入</td>
+<td align="left"><code>C-u</code></td>
+</tr>
+<tr>
+<td align="left">上/下一个选项</td>
+<td align="left"><code>C-k/j</code></td>
+</tr>
+<tr>
+<td align="left">在新标签/垂直分割/水平分割打开文件</td>
+<td align="left"><code>C-t/]/v</code></td>
+</tr>
+<tr>
+<td align="left">刷新列表</td>
+<td align="left"><code>F5</code></td>
+</tr>
+</tbody></table>
+<h4 id="vim-table-mode"><a href="#vim-table-mode" class="headerlink" title="vim-table-mode"></a>vim-table-mode</h4><table>
+<thead>
+<tr>
+<th align="left">功能</th>
+<th align="left">按键</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">删除列</td>
+<td align="left"><code>Leader-tdc</code></td>
+</tr>
+<tr>
+<td align="left">删除行</td>
+<td align="left"><code>Leader-tdd</code></td>
+</tr>
+<tr>
+<td align="left">重新格式化表格</td>
+<td align="left"><code>Leader-tr</code></td>
+</tr>
+</tbody></table>
+</div><ul class="post-copyright"><li class="post-copyright-author"><strong>本文作者：</strong>idongliming</li><li class="post-copyright-link"><strong>本文链接：</strong><a href="https://idongliming.github.io/post/vim.html" title="Vim">https://idongliming.github.io/post/vim.html</a></li><li class="post-copyright-license"><strong>版权声明：</strong>本博客所有文章除特别声明外，均默认采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><svg class="icon"><use xlink:href="#icon-creative-commons-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-by-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-nc-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-sa-line"></use></svg></a> 许可协议。</li></ul></section></article><div class="post-nav"><div class="post-nav-item"><a class="post-nav-prev" href="/post/thymeleaf.html" rel="prev" title="Thymeleaf"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-left-s-line"></use></svg><span class="post-nav-text">Thymeleaf</span></a></div><div class="post-nav-item"><a class="post-nav-next" href="/post/visual-studio-code.html" rel="next" title="Vscode"><span class="post-nav-text">Vscode</span><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-right-s-line"></use></svg></a></div></div></div><div id="comment"><div class="comment-tooltip text-center"><span>没有评论系统</span><br><span>如需联系可发</span><br><span>邮箱或电报</span><br></div></div></main><footer class="sidebar-translate" id="footer"><div class="copyright"><span>&copy; 2017 – 2020 </span><span class="with-love" id="animate"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-cloud-line"></use></svg></span><span class="author"> idongliming</span></div><div class="powered"><span>由 <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> 驱动 v4.2.1</span><span class="footer-separator">|</span><span>主题 - <a rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun" target="_blank"><span>Yun</span></a> v0.9.3</span></div><div class="live_time"><span>已运行</span><span id="display_live_time"></span><span class="moe-text">(●'◡'●)</span><script>function blog_live_time() {
+  window.setTimeout(blog_live_time, 1000);
+  const start = new Date('2017-12-12T13:00:21');
+  const now = new Date();
+  const timeDiff = (now.getTime() - start.getTime());
+  const msPerMinute = 60 * 1000;
+  const msPerHour = 60 * msPerMinute;
+  const msPerDay = 24 * msPerHour;
+  const passDay = Math.floor(timeDiff / msPerDay);
+  const passHour = Math.floor((timeDiff % msPerDay) / 60 / 60 / 1000);
+  const passMinute = Math.floor((timeDiff % msPerHour) / 60 / 1000);
+  const passSecond = Math.floor((timeDiff % msPerMinute) / 1000);
+  display_live_time.innerHTML = " " + passDay + " 天 " + passHour + " 小时 " + passMinute + " 分 " + passSecond + " 秒";
+}
+blog_live_time();
+</script></div></footer><a class="hty-icon-button" id="goUp" aria-label="back-to-top" href="#"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-up-s-line"></use></svg><svg class="progress-circle-container" viewBox="0 0 100 100"><circle class="progress-circle" id="progressCircle" cx="50" cy="50" r="48" fill="none" stroke="#0078E7" stroke-width="2" stroke-linecap="round"></circle></svg></a><a class="popup-trigger hty-icon-button icon-search" id="search" href="javascript:;" title="搜索"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-search-line"></use></svg></span></a><script>window.addEventListener("DOMContentLoaded", () => {
+  // Handle and trigger popup window
+  document.querySelector(".popup-trigger").addEventListener("click", () => {
+    document.querySelector(".popup").classList.add("show");
+    setTimeout(() => {
+      document.querySelector(".search-input").focus();
+    }, 100);
+  });
+
+  // Monitor main search box
+  const onPopupClose = () => {
+    document.querySelector(".popup").classList.remove("show");
+  };
+
+  document.querySelector(".popup-btn-close").addEventListener("click", () => {
+    onPopupClose();
+  });
+
+  window.addEventListener("keyup", event => {
+    if (event.key === "Escape") {
+      onPopupClose();
+    }
+  });
+});
+</script><script src="/js/search/local-search.js" defer></script><div class="popup search-popup"><div class="search-header"><span class="popup-btn-close close-icon hty-icon-button"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-close-line"></use></svg></span></div><div class="search-input-container"><input class="search-input" id="local-search-input" type="text" placeholder="搜索..." value=""></div><div id="local-search-result"></div></div></div><script defer src="/js/utils.js"></script><script defer src="/js/hexo-theme-yun.js"></script></body></html>
