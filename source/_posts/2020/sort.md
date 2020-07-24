@@ -10,8 +10,9 @@ categories: 算法和数据结构
 
 排序算法是《数据结构与算法》中最基本的算法之一。
 排序算法可以分为内部排序和外部排序，内部排序是数据记录在内存中进行排序，而外部排序是因排序的数据很大，一次不能容纳全部的排序记录，在排序过程中需要访问外存。
-![sort.png](https://i.loli.net/2020/03/11/Di69mhrO1GaolVX.png)
+<!-- ![sort.png](https://i.loli.net/2020/03/11/Di69mhrO1GaolVX.png) -->
 <!-- more -->
+![复杂度](sort.png)
 ### 冒泡排序
 
 ```java
